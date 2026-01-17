@@ -145,7 +145,6 @@ function applyDarkMode(enabled, shouldPersist = true) {
 setAuthenticatedState(false);
 
 applyDarkMode(readDarkModePreference(), false);
-closeProfileSidebar();
 
 if (profileSidebarToggle) {
   profileSidebarToggle.addEventListener('click', (event) => {
@@ -985,3 +984,4 @@ if (supabase) {
 
 updateSelectedDate();
 renderAssignments({ animate: false });
+openProfileSidebar();
