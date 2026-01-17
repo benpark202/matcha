@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>matcha</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-authenticated="false">
+    <div class="app-shell">
+      <aside class="profile-sidebar" id="profileSidebar" aria-hidden="true">
+        <div class="profile-sidebar__content">
+          <button
+            id="profileSidebarClose"
+            type="button"
+            class="profile-sidebar__close"
+            aria-label="close profile sidebar"
+          >
+            &times;
+          </button>
+          <p class="profile-sidebar__title">account</p>
+          <p class="profile-sidebar__name" id="profileSidebarName">matcha</p>
+          <p class="profile-sidebar__status" id="profileSidebarStatus">signed out</p>
+          <div class="profile-sidebar__actions">
+            <button
+              type="button"
+              id="profileDarkModeToggle"
+              class="profile-menu__item"
+              aria-pressed="false"
+            >
+              <span class="profile-menu__item-label">dark mode</span>
+              <span class="profile-menu__item-state" id="darkModeState">off</span>
+            </button>
+            <button
+              type="button"
+              id="signOutButton"
+              class="profile-menu__item"
+              data-action="sign-out"
+            >
+              sign out
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="page">
+        <header class="hero">
+          <div class="hero__brand">
+            <button
+              id="profileSidebarToggle"
+              class="hero-profile-circle hidden"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-label="open profile sidebar"
+            >
+              <span class="hero-profile-icon" aria-hidden="true"></span>
+            </button>
+            <p class="hero__label">matcha</p>
+          </div>
+          <div class="hero__controls"></div>
+        </header>
+
+      <main class="auth-wrapper">
+        <section class="auth-card">
+          <p class="auth-card__emoji" aria-hidden="true">🍵</p>
+          <p class="auth-card__title">welcome back</p>
+          <form id="authForm" class="auth-form">
+            <label class="auth-field">
+              <input
+                id="emailInput"
+                type="email"
+                placeholder="email"
+                autocomplete="email"
+                aria-label="email"
+              />
+            </label>
+            <label class="auth-field password-field">
+              <div class="password-input-wrapper">
+                <input
+                  id="passwordInput"
+                  type="password"
+                  placeholder="password"
+                  autocomplete="current-password"
+                  aria-label="password"
+                />
+                <button
+                  type="button"
+                  id="passwordRevealButton"
+                  class="password-reveal-btn"
+                  aria-pressed="false"
+                  aria-label="toggle password visibility"
+                >
+                  show
+                </button>
+              </div>
+            </label>
+            <div class="auth-actions">
+              <button id="signInButton" type="submit" class="primary-btn">sign in</button>
+              <button id="createAccountButton" type="button" class="ghost-btn">create account</button>
+            </div>
+          </form>
+          <p id="authStatus" class="status-line"></p>
+        </section>
+      </main>
+
+      <main class="workspace">
+        <section class="banner-card">
+          <div class="banner-preview" id="bannerPreview">
+            <div class="banner-preview__actions">
+              <button id="bannerChangeButton" type="button">change photo</button>
+              <button id="bannerRemoveButton" type="button">remove</button>
+            </div>
+          </div>
+          <input
+            type="file"
+            id="bannerUpload"
+            accept="image/*,.heic,.heif"
+          />
+        </section>
+
+        <section class="greeting-row">
+          <p class="greeting-card__message" id="greetingMessage">good day, guest</p>
+        </section>
+
+        <div class="widget-grid">
+        <section class="calendar-panel">
+          <div class="calendar-panel__top">
+            <div class="calendar-nav">
+              <button id="prevPeriod" aria-label="previous period">←</button>
+              <p id="viewHeadline"></p>
+              <button id="nextPeriod" aria-label="next period">→</button>
+            </div>
+            <div class="view-switch">
+              <button data-view="daily" class="view-switch__button is-active">daily</button>
+              <button data-view="weekly" class="view-switch__button">weekly</button>
+              <button data-view="monthly" class="view-switch__button">monthly</button>
+            </div>
+          </div>
+            <div id="calendarContent" class="calendar-content"></div>
+          </section>
+
+        <section class="tasks-panel">
+          <div class="tasks-header">
+            <p class="tasks-label">daily tasks</p>
+            <p class="widget-ratio" id="tasksRatio">0/0 done</p>
+          </div>
+          <form id="taskForm" class="task-form">
+            <input id="taskInput" type="text" placeholder="add a task" autocomplete="off" />
+            <button type="submit" class="primary-btn" aria-label="add task">+</button>
+          </form>
+          <div id="tasksList" class="tasks-list"></div>
+        </section>
+        </div>
+        <section class="assignments-panel">
+          <div class="assignments-header">
+            <p class="assignments-label">assignments</p>
+            <p class="widget-ratio" id="assignmentsRatio">0/0 flagged</p>
+          </div>
+          <form id="assignmentForm" class="assignment-form">
+            <input id="assignmentInput" type="text" placeholder="add an assignment" autocomplete="off" />
+            <button type="submit" class="ghost-btn">add</button>
+          </form>
+          <div id="assignmentsList" class="assignments-list">
+            <p class="status-line muted">no assignments yet</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+    <footer>~ 🌿  jan 2026  🌿 ~</footer>
+
+    <script src="https://unpkg.com/heic2any/dist/heic2any.min.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
